@@ -16,12 +16,8 @@ UserScriptのインストールは、**GreasyFork**から行うのが**最も簡
 
 このスクリプトを使うには、UserScript管理のための拡張機能が必要です。
 
-* **Tampermonkey**: 
-    * [Chrome ウェブストア](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-    * [Firefox Add-ons](https://addons.mozilla.org/ja/firefox/addon/tampermonkey/)
-* **Violentmonkey**: 
-    * [Chrome ウェブストア](https://chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag)
-    * [Firefox Add-ons](https://addons.mozilla.org/ja/firefox/addon/violentmonkey/)
+   * **Tampermonkey**: [https://www.tampermonkey.net/](https://www.tampermonkey.net/)
+   * **ScriptCat**: [https://scriptcat.org/](https://scriptcat.org/)
 
 ---
 
@@ -50,18 +46,15 @@ UserScriptのインストールは、**GreasyFork**から行うのが**最も簡
 
 ---
 
-## 🛡️ ライセンスについて
+## 🛡️ ライセンスについて (License)
 
-このスクリプトは、私が著作権を保有しています。
+このアプリケーションのソースコードは、ねおんが著作権を保有しています。  
+The source code for this application is copyrighted by Neon.
 
-* **ライセンス**: **CC BY-NC 4.0** です。（LICENSEファイルをご参照ください。）
-
-* **お願い**: 個人での利用や改変、非営利の範囲内での再配布はOKです。でも、**商用目的での利用はご遠慮ください**。
-
-### 免責事項
-* **自己責任**: ご利用は自己責任でお願いします。
-* **バックアップ**: 大切なタグデータですので、**定期的なバックアップ**を推奨します。
-* **動作保証**: 今後のイロミライ、またはちちぷいの**サイト更新**によって、このスクリプトが予期せず使えなくなる可能性はありますので、予めご了承ください。
+* **ライセンス**: **[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.ja)** です。（LICENSEファイルをご参照ください。）
+* **商用利用不可**: 個人での利用や改変、非営利の範囲内での再配布はOKです。**商用目的での利用はご遠慮ください**。  
+  **No Commercial Use**: Personal use, modification, and non-profit redistribution are permitted. **Please refrain from commercial use.**  
+※ ご利用は自己責任でお願いします。（悪用できるようなものではないですが、念のため！）
 
 ---
 
