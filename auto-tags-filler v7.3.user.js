@@ -1,21 +1,19 @@
 // ==UserScript==
-// @name         Auto Tags Filler for Iromirai & Chichi-pui
-// @name:ja      タグ入力補助 for イロミライ＆ちちぷい
+// @name           Auto Tags Filler for Iromirai & Chichi-pui
+// @name:ja        タグ入力補助 for イロミライ＆ちちぷい
 // @description    Auto-fills tags for Iromirai & Chichi-pui.
 // @description:ja イロミライとちちぷいのタグ入力を補助します。
-// @namespace    https://bsky.app/profile/neon-ai.art
-// @homepage     https://bsky.app/profile/neon-ai.art
-// @icon         data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛄️</text></svg>
-// @version     7.3
-// @author       ねおん
-// @match        https://iromirai.jp/user/post*
-// @match        https://www.chichi-pui.com/posts/upload*
-// @grant        GM_getValue
-// @grant        GM_setValue
-// @require      https://greasyfork.org/scripts/28536-gm-config/code/GM_config.js?version=184529
-// @license      CC BY-NC 4.0
-// @downloadURL https://update.greasyfork.org/scripts/542540/Auto%20Tags%20Filler%20for%20Iromirai%20%20Chichi-pui.user.js
-// @updateURL https://update.greasyfork.org/scripts/542540/Auto%20Tags%20Filler%20for%20Iromirai%20%20Chichi-pui.meta.js
+// @namespace      https://bsky.app/profile/neon-ai.art
+// @homepage       https://bsky.app/profile/neon-ai.art
+// @icon           data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛄️</text></svg>
+// @version        7.3
+// @author         ねおん
+// @match          https://iromirai.jp/user/post*
+// @match          https://www.chichi-pui.com/posts/upload*
+// @grant          GM_getValue
+// @grant          GM_setValue
+// @require        https://greasyfork.org/scripts/28536-gm-config/code/GM_config.js?version=184529
+// @license        CC BY-NC 4.0
 // ==/UserScript==
 
 /**
@@ -24,8 +22,8 @@
  * ==============================================================================
  * Copyright (c) 2024 ねおん (Neon)
  * Released under the CC BY-NC 4.0 License.
- * * [EN] Unauthorized re-uploading, modification of authorship, or removal of 
- * author credits is strictly prohibited. If you fork this project, you MUST 
+ * * [EN] Unauthorized re-uploading, modification of authorship, or removal of
+ * author credits is strictly prohibited. If you fork this project, you MUST
  * retain the original credits.
  * * [JP] 無断転載、作者名の書き換え、およびクレジットの削除は固く禁じます。
  * 本スクリプトを改変・配布する場合は、必ず元の作者名（ねおん）を明記してください。
