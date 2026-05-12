@@ -64,9 +64,9 @@
 
     // ユーザー定義テンプレートの初期データ（GM_configにデータがない場合にロードされる）
     const DEFAULT_USER_TEMPLATES = [
-        { name: "基本タグ", tags: "イラスト,AI生成,可愛い" },
-        { name: "風景タグ", tags: "風景,空,自然" },
-        { name: "キャラクター", tags: "女の子,オリジナル,ファンタジー" }
+        { name: "基本タグ", tags: "イラスト,AI生成,可愛い", },
+        { name: "風景タグ", tags: "風景,空,自然", },
+        { name: "キャラクター", tags: "女の子,オリジナル,ファンタジー", },
     ];
 
     let currentTemplates = []; // 現在のテンプレートリスト
@@ -84,16 +84,16 @@
             'userTemplates': {
                 'label': 'ユーザーテンプレート',
                 'type': 'hidden', // UIには表示しないが、データはここに保存される
-                'default': JSON.stringify(DEFAULT_USER_TEMPLATES)
-            }
+                'default': JSON.stringify(DEFAULT_USER_TEMPLATES),
+            },
         },
         'events': {
             'save': function() {
                 // GM_configが保存されたときに、内部のcurrentTemplatesを更新
                 // ただし、このスクリプトはUIから直接GM_configを操作しないため、主にGM_config.set()の後に呼ばれる想定
                 loadTemplatesFromGMConfig();
-            }
-        }
+            },
+        },
     });
 
     // --- テンプレートをグローバルに読み込む関数 ---
@@ -161,14 +161,14 @@
         console.log('初回処理開始前：遅延 (' + initialDelayTime + 'ms)');
         await new Promise(resolve => setTimeout(resolve, initialDelayTime));
         themeTagInput.value = '';
-        themeTagInput.dispatchEvent(new Event('input', { bubbles: true }));
-        themeTagInput.dispatchEvent(new Event('change', { bubbles: true }));
+        themeTagInput.dispatchEvent(new Event('input', { bubbles: true, }));
+        themeTagInput.dispatchEvent(new Event('change', { bubbles: true, }));
         await new Promise(resolve => setTimeout(resolve, 50));
         for (let i = 0; i < tagsToEnter.length; i++) {
             const tag = tagsToEnter[i];
             themeTagInput.value = tag;
-            themeTagInput.dispatchEvent(new Event('input', { bubbles: true }));
-            themeTagInput.dispatchEvent(new Event('change', { bubbles: true }));
+            themeTagInput.dispatchEvent(new Event('input', { bubbles: true, }));
+            themeTagInput.dispatchEvent(new Event('change', { bubbles: true, }));
 
             addButton.click();
             const loopDelayTime = 100;
@@ -328,17 +328,23 @@
                                     }
                                     if (Array.isArray(scriptContent) && scriptContent.length > 0 && scriptContent[0] && typeof scriptContent[0].insert === 'string') {
                                         tags = scriptContent[0].insert.replace(/\\n/g, ', ').trim();
-                                        if (tags.endsWith(',')) tags = tags.slice(0, -1).trim();
+                                        if (tags.endsWith(',')) {
+                                            tags = tags.slice(0, -1).trim();
+                                        }
                                     } else if (typeof scriptContent === 'string') {
                                         tags = scriptContent.replace(/\\n/g, ', ').trim();
-                                        if (tags.endsWith(',')) tags = tags.slice(0, -1).trim();
+                                        if (tags.endsWith(',')) {
+                                            tags = tags.slice(0, -1).trim();
+                                        }
                                     } else {
                                         tags = item.script;
                                     }
                                 } else {
                                     if (Array.isArray(item.script) && item.script.length > 0 && item.script[0] && typeof item.script[0].insert === 'string') {
                                         tags = item.script[0].insert.replace(/\\n/g, ', ').trim();
-                                        if (tags.endsWith(',')) tags = tags.slice(0, -1).trim();
+                                        if (tags.endsWith(',')) {
+                                            tags = tags.slice(0, -1).trim();
+                                        }
                                     } else {
                                         tags = item.script;
                                     }
@@ -347,7 +353,7 @@
                                 console.warn(`TextFillスクリプトのパースに失敗しました (${item.label || item.command}):`, parseError);
                                 tags = item.script;
                             }
-                            return { name: item.label || item.command || '不明なタグ', tags: tags };
+                            return { name: item.label || item.command || '不明なタグ', tags: tags, };
                         });
                     } else if (Array.isArray(rawData) && rawData.every(t => typeof t.name === 'string' && typeof t.tags === 'string')) {
                         console.log("iromirai形式のデータを検出しました。");
@@ -356,7 +362,7 @@
                         throw new Error("対応していないJSON形式です。TextFillのエクスポートデータか、このスクリプトでエクスポートしたJSONファイルを指定してください。");
                     }
 
-                    const newTemplates = [...currentTemplates];
+                    const newTemplates = [...currentTemplates,];
                     let importedCount = 0;
                     let updatedCount = 0;
 
@@ -388,7 +394,9 @@
 
     // --- パネルの高さ調整関数 ---
     function adjustPanelHeight() {
-        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) return;
+        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) {
+            return;
+        }
         const originalDisplay = managePanel.style.display;
         managePanel.style.display = 'block';
         managePanel.style.height = 'auto';
@@ -424,8 +432,8 @@
         triggerTextFillButton.onclick = () => {
             isButtonTriggeredTextFill = true;
             themeTagInput.value = '/';
-            themeTagInput.dispatchEvent(new Event('input', { bubbles: true }));
-            themeTagInput.dispatchEvent(new Event('change', { bubbles: true }));
+            themeTagInput.dispatchEvent(new Event('input', { bubbles: true, }));
+            themeTagInput.dispatchEvent(new Event('change', { bubbles: true, }));
 
             console.log('TextFillメニューをトリガーしました。手動で選択してください。');
             themeTagInput.focus();
@@ -500,7 +508,9 @@
                                   targetElement.closest('#importTagsButton') ||
                                   targetElement.closest('.apply-template-btn');
 
-            if (isCommonControl) return true;
+            if (isCommonControl) {
+                return true;
+            }
 
             // サイト固有の追加ボタン
             if (hostname.includes('iromirai.jp')) {
@@ -527,7 +537,9 @@
     // --- テンプレート一覧をレンダリングする関数 ---
     let draggedItem = null;
     function renderTemplateList() {
-        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) return;
+        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) {
+            return;
+        }
 
         let wasFilterInputFocused = (document.activeElement === filterInput);
         let selectionStart = 0;
@@ -566,7 +578,9 @@
             ul.style.cssText = 'list-style:none; padding:0;';
             filteredTemplates.forEach((template, index) => {
                 const originalIndex = currentTemplates.findIndex(t => t.name === template.name && t.tags === template.tags);
-                if (originalIndex === -1) return;
+                if (originalIndex === -1) {
+                    return;
+                }
 
                 const li = document.createElement('li');
                 li.setAttribute('draggable', 'true');
@@ -686,7 +700,7 @@
                         return;
                     }
 
-                    currentTemplates[index] = { name: newName, tags: newTags };
+                    currentTemplates[index] = { name: newName, tags: newTags, };
                     saveTemplatesToGMConfig();
                     renderTemplateList();
                 };
@@ -734,7 +748,7 @@
                         const draggedIndex = parseInt(draggedItem.dataset.index);
                         const targetIndex = parseInt(item.dataset.index);
 
-                        const [removed] = currentTemplates.splice(draggedIndex, 1);
+                        const [removed,] = currentTemplates.splice(draggedIndex, 1);
                         const bounding = item.getBoundingClientRect();
                         const offset = bounding.y + (bounding.height / 2);
 
@@ -764,7 +778,9 @@
 
     // --- テンプレートの適用関数 ---
     function applyTemplate(index) {
-        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) return;
+        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) {
+            return;
+        }
         const template = currentTemplates[index];
         themeTagInput.value = template.tags;
         if (!isProcessing) {
@@ -788,8 +804,8 @@
                 return;
             }
 
-            currentTemplates.push({ name, tags });
-            console.log("新規テーマタグを追加しました:", { name, tags });
+            currentTemplates.push({ name, tags, });
+            console.log("新規テーマタグを追加しました:", { name, tags, });
 
             saveTemplatesToGMConfig();
             renderTemplateList();
@@ -797,21 +813,25 @@
 
             const lastItem = templateItemsScrollArea.querySelector('ul > li:last-child');
             if (lastItem) {
-                lastItem.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                lastItem.scrollIntoView({ behavior: 'smooth', block: 'end', });
             }
         };
     }
 
     // --- 追加フォームをリセットする関数 ---
     function resetAddForm() {
-        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) return;
+        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) {
+            return;
+        }
         addTemplateNameInput.value = '';
         addTemplateTagsInput.value = '';
     }
 
     // --- テンプレートを削除する関数 ---
     function deleteTemplate(index) {
-        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) return;
+        if (!ENABLE_IN_SCRIPT_TAG_MANAGEMENT) {
+            return;
+        }
         if (confirm(`「${currentTemplates[index].name}」を削除してもよろしいですか？`)) {
             currentTemplates.splice(index, 1);
             saveTemplatesToGMConfig();
@@ -825,7 +845,7 @@
     if (ENABLE_IN_SCRIPT_TAG_MANAGEMENT) {
         exportTagsButton.onclick = () => {
             const dataStr = JSON.stringify(currentTemplates, null, 2);
-            const blob = new Blob([dataStr], { type: 'application/json' });
+            const blob = new Blob([dataStr,], { type: 'application/json', });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -846,12 +866,14 @@
             return;
         }
 
-        if (changeTimer) clearTimeout(changeTimer);
+        if (changeTimer) {
+            clearTimeout(changeTimer);
+        }
 
         changeTimer = setTimeout(() => {
             if (themeTagInput.value.trim() === '/' || themeTagInput.value.trim() === '') {
-                 console.log("Changeイベント: TextFillトリガー文字または空値が検出されました。自動確定はスキップします.");
-                 return;
+                console.log("Changeイベント: TextFillトリガー文字または空値が検出されました。自動確定はスキップします.");
+                return;
             }
             if (!isProcessing) {
                 processTagsAutomatically();
