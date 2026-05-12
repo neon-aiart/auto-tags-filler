@@ -76,6 +76,7 @@ Any distribution in `.zip`, `.exe`, `.cmd` formats on other sites is **FAKE**.
 These have been confirmed to contain **VIRUSES or MALWARE**.  
 
 ### ⚖️ 法的措置と通報について / Legal Action & Abuse Reports  
+
 当プロジェクトの制作物に対する無断転載が確認されたため、過去に **DMCA Take-down通知** を送付しています  
 また、マルウェアを配布する悪質なサイトについては、順次 **各機関へ通報 (Malware / Abuse Report)** を行っています  
 We have filed **DMCA Take-down notices** against unauthorized re-uploads of my projects.  
